@@ -10,6 +10,33 @@ var paddleWidth = 75;
 var paddleX = (canvas.width - paddleWidth)/2;
 var rightPressed = false;
 var leftPressed = false;
+var brickRowCount = 3;
+var brickColumnCount = 5;
+var brickWidth = 75;
+var brickHeight = 20;
+var brickPadding = 10;
+var brickOffsettop = 30;
+var brickOffsetLeft = 30;
+var bricks = [];
+for(var c=0; c<brickColumnCount; c++)
+document.addEventListener("keydown",keyDownHandler, false);
+document.addEventListener("keyup",keyUpHandler, false);
+function keyDownHandler(e){
+    if(e.key == "right" || e.key == "arrowright"){
+        rightPressed = true;
+    }
+    else if(e.key == "left" || e.key == "arrowleft"){
+        leftPressed = true;
+    }
+    }
+    function keyDownHandler(e){
+        if(e.key == "right" || e.key == "arrowright"){
+            rightPressed = false;
+        }
+        else if(e.key == "left" || e.key == "arrowleft"){
+            leftPressed = false;
+        }
+        }
 function drawBall(){
     ctx.beginPath();
     ctx.arc(x,y,ballRadius,0,Math.PI);
